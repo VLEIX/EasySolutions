@@ -1,0 +1,133 @@
+		<!--start-header--->
+		<div class="header">
+		<!--start-wrap--->
+		<div class="wrap">
+				<!--start-logo--->
+				<div class="logo">
+					<a><img src="/images/logo.png" /></a>
+				</div>
+				<div class="top-nav">
+					<ul>
+						<li><a <%= link_to "Inicio", :controller => "welcome", :action => "index" %>></a></li>
+						<li><a <%= link_to "Nosotros", :controller => "welcome", :action => "about" %>></a></li>
+						<li><a <%= link_to "Servicios", :controller => "welcome", :action => "service" %>></a></li>
+						<li class="active"><a <%= link_to "Contacto", :controller => "welcome", :action => "contact" %>></a></li>
+						<% if client_signed_in? %>
+							<li><a style="text-align:center">Bienvenido,<br><%= current_client.name %></a></li>
+							<li><%= link_to "Cerrar sesión", destroy_client_session_path, method: :delete %>></a></li>
+						<% else %>
+							<li><%= link_to "Iniciar sesión", new_client_session_path %>></a></li>
+							<li><%= link_to "Regístrese", new_client_registration_path %>></a></li>
+						<% end %>
+					</ul>
+				</div>
+				<div class="clear"> </div>
+				<!--End-logo--->
+			</div>
+			<!--End-header--->
+		</div>
+		<div class="clear"> </div>
+		<div class="banner-slider">
+		<div class="wrap box">
+			<div class="banner">
+	        <div class="flexslider">
+	          <ul class="slides">
+	            <li data-thumb="/images/1.jpg">
+	  	    	    <img src="/images/1.jpg" />
+	  	    		</li>
+	  	    		  <li data-thumb="/images/2.jpg">
+	  	    	  <img src="/images/2.jpg" />
+	  	    		</li>
+	  	    		  <li data-thumb="/images/1.jpg">
+	  	    	    <img src="/images/1.jpg" />
+	  	    		</li>
+	  	    		  <li data-thumb="/images/4.jpg">
+	  	    	    <img src="/images/4.jpg" />
+	  	    		</li>
+	          </ul>
+	          
+	        </div>
+	         <div class="banner-withtext">
+	        	<h3>ACHIEVE THE HIGHEST</h3>
+	        	<h2>RESULTS</h2>
+	        	<P>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</P>
+	        </div>
+	        <div class="Lets-start">
+	        	<a href="#">Let's start</a>
+	        </div>
+	      </div>
+	       <div class="clear"> </div>
+	  </div>
+	   <div class="clear"> </div>
+	  </div>
+	  <!-- jQuery -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
+  <!-- FlexSlider -->
+  <script defer src="js/jquery.flexslider.js"></script><script type="text/javascript">
+    $(function(){
+      SyntaxHighlighter.all();
+    });
+    $(window).load(function(){
+      $('.flexslider').flexslider({
+        animation: "slide",
+        controlNav: "thumbnails",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+    });
+  </script>
+  <div class="clear"> </div>
+  <div class="wrap">
+  	<div class="section group">				
+				<div class="col span_1_of_3">
+					<div class="contact_info">
+			    	 	<h2>Find Us Here</h2>
+			    	 		<div class="map">
+					   			<iframe width="100%" height="175" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px">View Larger Map</a></small>
+					   		</div>
+      				</div>
+      			<div class="company_address">
+				     	<h2>Company Information :</h2>
+						    	<p>500 Lorem Ipsum Dolor Sit,</p>
+						   		<p>22-56-2-9 Sit Amet, Lorem,</p>
+						   		<p>USA</p>
+				   		<p>Phone:(00) 222 666 444</p>
+				   		<p>Fax: (000) 000 00 00 0</p>
+				 	 	<p>Email: <span>info@mycompany.com</span></p>
+				   		<p>Follow on: <span>Facebook</span>, <span>Twitter</span></p>
+				   </div>
+				</div>				
+				<div class="col span_2_of_3">
+				  <div class="contact-form">
+				  	<h2>Contact Us</h2>
+					    <form>
+					    	<div>
+						    	<span><label>NAME</label></span>
+						    	<span><input type="text" value=""></span>
+						    </div>
+						    <div>
+						    	<span><label>E-MAIL</label></span>
+						    	<span><input type="text" value=""></span>
+						    </div>
+						    <div>
+						     	<span><label>MOBILE.NO</label></span>
+						    	<span><input type="text" value=""></span>
+						    </div>
+						    <div>
+						    	<span><label>SUBJECT</label></span>
+						    	<span><textarea> </textarea></span>
+						    </div>
+						   <div>
+						   		<span><input type="submit" value="Submit"></span>
+						  </div>
+					    </form>
+				    </div>
+  				</div>				
+			  </div>
+			  	 <div class="clear"> </div>
+	</div>
+		<!--End-wrap--->
+		
+		

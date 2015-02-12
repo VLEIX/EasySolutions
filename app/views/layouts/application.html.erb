@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
+  <title>EasySolutions - Empresa líder, especialista en soluciones web</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+	<meta charset="UTF-8"/>
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="stylesheets/flexslider.css" type="text/css" media="all" />
+	<script src="javascript/modernizr.js"></script>
+	<script src="javascript/responsive-nav.js"></script>
+	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	
 </head>
 <body>
+  
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+  
 
 <%= yield %>
 
 </body>
+
+<div class="clear"> </div>
+<div class="footer"> 
+		<div class="wrap"> 
+		<div class="left-footer"> 
+			<a href="index.html"><img src="/images/logo1.png" title="logo"></a>
+		</div>
+		<div class="right-footer">
+			<p>EasySolutions Todos los derechos reservados | ES TEAM <a href="http://easysolutions.com/">EasySolutions</a></p>
+		</div>
+		<div class="clear"> </div>
+	</div>
+	
+</div>
 </html>
+
+

@@ -1,0 +1,95 @@
+
+	<!--start-header--->
+	<div class="header">
+	<!--start-wrap--->
+	<div class="wrap">
+			<!--start-logo--->
+			<div class="logo">
+				<a><img src="/images/logo.png" /></a>
+			</div>
+			<div class="top-nav">
+        
+			</div>
+			<div class="clear"> </div>
+			<!--End-logo--->
+		</div>
+		<!--End-header--->
+	</div>
+	<div class="clear"> </div>
+	<div class="banner-slider">
+	<div class="wrap box">
+		<div class="banner">
+		  
+		  
+       <div class="contact-form">
+        <h3 >REGÍSTRATE</h3>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+          
+          <div>
+          	<span><%= f.input :name, autofocus: true, :class => "textfield", label: "Nombre" %></span>
+          </div>
+          <div>
+          	<span><%= f.input :apat, :class => "textfield", label: "Apellido Paterno" %></span>
+          </div>
+          <div>
+          	<span><%= f.input :amat, :class => "textfield", label: "Apellido Materno" %></span>
+          </div>
+          <div>
+          	<span><label><%= f.label :tel %><br />Teléfono</label></span>
+          	<span><%= f.text_field :tel, :class => "textfield" %></span>
+          </div>
+          <div>
+          	<span><label><%= f.label :cel %><br />Celular</label></span>
+          	<span><%= f.text_field :cel, :class => "textfield" %></span>
+          </div>
+          <div>
+          	<span><%= f.input :dni, :class => "textfield", label: "D.N.I." %></span>
+          </div>
+          <div>
+          	<span><label><%= f.label :email %><br />Email</label></span>
+          	<span><%= f.email_field :email, :class => "textfield" %></span>
+          	
+          </div>
+          <div>
+          	<span><label><%= f.label :fech %><br /></label></span>
+          	<span><%= f.input  :fech, :class => "textfield" %></span>
+          </div>
+        
+          <div>
+            <span><label><%= f.label :password %><br />Contraseña</label></span>
+            <% if @validatable %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "off", :class => "textfield" %>
+          </div>
+        
+          <div class="field">
+            <span><label><%= f.label :password_confirmation %><br />Repita contraseña</label></span>
+            <%= f.password_field :password_confirmation, autocomplete: "off", :class => "textfield" %>
+          </div>
+        
+          <div class="actions">
+            <%= f.submit "Registrar" %>
+          </div>
+        <% end %>
+      <%= render "devise/shared/links" %>
+      <div>
+  
+  
+  
+      </div>
+       <div class="clear"> </div>
+  </div>
+
+</div>
+
+
+
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+
+	<!--End-wrap--->
