@@ -18,7 +18,7 @@ class VehiclesControllerTest < ActionController::TestCase
 
   test "should create vehicle" do
     assert_difference('Vehicle.count') do
-      post :create, vehicle: { anho_fab: @vehicle.anho_fab, client_id: @vehicle.client_id, color_id: @vehicle.color_id, departamento_id: @vehicle.departamento_id, marca_id: @vehicle.marca_id, modelo_id: @vehicle.modelo_id, nro_motor: @vehicle.nro_motor, placa: @vehicle.placa, serie: @vehicle.serie }
+      post :create, vehicle: { anho_fab: @vehicle.anho_fab, client_id: @vehicle.client_id, color_id: @vehicle.color_id, departamento_id: @vehicle.departamento_id, marca_id: @vehicle.marca_id, modelo_id: @vehicle.modelo_id, name: @vehicle.name, nro_motor: @vehicle.nro_motor, placa: @vehicle.placa, serie: @vehicle.serie }
     end
 
     assert_redirected_to vehicle_path(assigns(:vehicle))
@@ -35,7 +35,7 @@ class VehiclesControllerTest < ActionController::TestCase
   end
 
   test "should update vehicle" do
-    patch :update, id: @vehicle, vehicle: { anho_fab: @vehicle.anho_fab, client_id: @vehicle.client_id, color_id: @vehicle.color_id, departamento_id: @vehicle.departamento_id, marca_id: @vehicle.marca_id, modelo_id: @vehicle.modelo_id, nro_motor: @vehicle.nro_motor, placa: @vehicle.placa, serie: @vehicle.serie }
+    patch :update, id: @vehicle, vehicle: { anho_fab: @vehicle.anho_fab, client_id: @vehicle.client_id, color_id: @vehicle.color_id, departamento_id: @vehicle.departamento_id, marca_id: @vehicle.marca_id, modelo_id: @vehicle.modelo_id, name: @vehicle.name, nro_motor: @vehicle.nro_motor, placa: @vehicle.placa, serie: @vehicle.serie }
     assert_redirected_to vehicle_path(assigns(:vehicle))
   end
 

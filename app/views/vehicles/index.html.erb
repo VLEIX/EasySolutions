@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th>Placa</th>
       <th>Anho fab</th>
       <th>Serie</th>
@@ -19,6 +20,7 @@
   <tbody>
     <% @vehicles.each do |vehicle| %>
       <tr>
+        <td><%= vehicle.name %></td>
         <td><%= vehicle.placa %></td>
         <td><%= vehicle.anho_fab %></td>
         <td><%= vehicle.serie %></td>

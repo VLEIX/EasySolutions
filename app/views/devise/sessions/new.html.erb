@@ -25,14 +25,16 @@
         <h2 class="rotulo" >INICIAR SESIÓN</h2>
            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="field">
-              <%= f.input :email, autofocus: true, label: "Correo" %>
+              <span><label><%= f.label :email, 'Correo' %><br /></label></span>
+              <%= f.text_field :email, autocomplete: "off", :class => "textfield" %>
             </div>
           
             <div class="field">
-              <%= f.input :password, autocomplete: "off", label: "Contraseña" %>
+              <span><label><%= f.label :password, 'Contraseña' %><br /></label></span>
+              <%= f.password_field :password, autocomplete: "off", :class => "textfield" %>
             </div>
           
-            <div class="actions">
+            <div align="center">
               <%= f.submit "Entrar" %>
             </div>
           <% end %>

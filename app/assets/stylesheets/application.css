@@ -817,7 +817,7 @@ body{
 			-o-box-shadow:inset 0px 0px 3px rgb(199, 199, 199);
 			-webkit-appearance:none;
 }
-input {
+input.textfield {
 		    padding:8px;
 			display:block;
 			width:98%;
@@ -835,6 +835,23 @@ input {
 }
 
 input[type="email"].email{
+		    padding:8px;
+			display:block;
+			width:98%;
+			background:#fcfcfc;
+			border: none;
+			outline:none;
+			color:#464646;
+			font-size:0.8125em;
+			font-family:Arial, Helvetica, sans-serif;
+			box-shadow: inset 0px 0px 3px rgb(199, 199, 199);
+			-webkit-box-shadow: inset 0px 0px 3px rgb(199, 199, 199);
+			-moz-box-shadow: inset 0px 0px 3px rgb(199, 199, 199);
+			-o-box-shadow:inset 0px 0px 3px rgb(199, 199, 199);
+			-webkit-appearance:none;
+}
+
+input[type="text"].text{
 		    padding:8px;
 			display:block;
 			width:98%;

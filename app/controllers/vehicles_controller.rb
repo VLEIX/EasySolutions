@@ -63,6 +63,6 @@ class VehiclesController < ApplicationController
     end
 
     def vehicle_params
-      params.require(:vehicle).permit(:placa, :anho_fab, :serie, :nro_motor, :client_id, :marca_id, :modelo_id, :departamento_id, :color_id)
+      params.require(:vehicle).permit(:name, :placa, :anho_fab, :serie, :nro_motor, :client_id, :marca_id, :modelo_id, :departamento_id, :color_id)
     end
 end

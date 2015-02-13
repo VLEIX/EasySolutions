@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vehicle:</strong>
+  <%= @citum.vehicle.name %>
+</p>
+
+<p>
+  <strong>Tiposervicio:</strong>
+  <%= @citum.tipoServicio.name %>
+</p>
+
+<p>
+  <strong>Espeservicio:</strong>
+  <%= @citum.espeServicio.name %>
+</p>
+
+<p>
+  <strong>Observacion:</strong>
+  <%= @citum.observacion %>
+</p>
+
+<p>
+  <strong>Distrito:</strong>
+  <%= @citum.distrito.name %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @citum.local.name %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @citum.fecha %>
+</p>
+
+<p>
+  <strong>Especial:</strong>
+  <%= @citum.especial %>
+</p>
+
+<p>
+  <strong>Verdia:</strong>
+  <%= @citum.verDia %>
+</p>
+
+<p>
+  <strong>Verdesde:</strong>
+  <%= @citum.verDesde %>
+</p>
+
+<p>
+  <strong>Verhasta:</strong>
+  <%= @citum.verHasta %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @citum.client %>
+</p>
+
+<%= link_to 'Edit', edit_citum_path(@citum) %> |
+<%= link_to 'Back', cita_path %>

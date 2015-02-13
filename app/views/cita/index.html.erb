@@ -1,0 +1,117 @@
+
+
+<% if client_signed_in? %>
+
+
+
+
+
+
+
+
+
+  <!--start-header--->
+  <div class="header">
+    <!--start-wrap--->
+    <div class="wrap">
+        <!--start-logo--->
+        <div class="logo">
+          <a><img src="/images/logo.png" /></a>
+        </div>
+        <div class="top-nav">
+          
+        </div>
+        <div class="clear"> </div>
+        <!--End-logo--->
+        </div>
+      <!--End-header--->
+    </div>
+    <div class="clear"> </div>
+    <div class="banner-slider">
+    <div class="wrap box" style="width: 60%">
+      <div class="contact-form" >
+        
+                <h2 class="rotulo" >CITAS RESERVADAS</h2>
+        
+<table>
+  <thead>
+    <tr style="width: 100%" bgcolor="#D1C0C0">
+      <th style="width: 25%">Vehículo</th>
+      <th style="width: 25%">Taller</th>
+      <th style="width: 25%">Especialista</th>
+      <th style="width: 25%"></th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cita.each do |citum| %>
+      <tr style="width: 100%; margin: 10px">
+        <td align="center" style="width: 25%"><%= citum.vehicle.name %></td>
+        <td align="center" style="width: 25%"><%= citum.local.name %></td>
+        <td align="center" style="width: 25%">---</td>
+        <td align="center" style="width: 25%"><%= link_to 'Ver detalles', citum  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+        
+        
+        
+      </div>
+      <div class="clear"> </div>
+  </div>
+</div>
+
+  <!--End-wrap--->
+
+
+
+
+<% else %>
+
+	
+	<!--start-header--->
+	<div class="header">
+  	<!--start-wrap--->
+  	<div class="wrap">
+  			<!--start-logo--->
+  			<div class="logo">
+  				<a><img src="/images/logo.png" /></a>
+  			</div>
+  			<div class="top-nav">
+          
+  			</div>
+  			<div class="clear"> </div>
+  			<!--End-logo--->
+  		  </div>
+  		<!--End-header--->
+  	</div>
+  	<div class="clear"> </div>
+  	<div class="banner-slider">
+  	<div class="wrap box" style="width: 37%">
+      <div class="contact-form" >
+        
+        
+        
+        <h2 class="rotulo" >USTED NO ESTA LOGUEADO</h2>
+    	<span align="center"><%= link_to "Iniciar sesión", new_client_session_path %></span>
+    	<span align="center"><%= link_to "Regístrese", new_client_registration_path %></span>
+        
+
+
+
+   
+        
+      </div>
+      <div class="clear"> </div>
+  </div>
+</div>
+
+	<!--End-wrap--->
+
+	
+	
+<% end %>

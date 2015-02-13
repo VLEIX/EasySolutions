@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213142225) do
+ActiveRecord::Schema.define(version: 20150213193036) do
+
+  create_table "cita", force: true do |t|
+    t.integer  "vehicle_id"
+    t.integer  "tipoServicio_id"
+    t.integer  "espeServicio_id"
+    t.text     "observacion"
+    t.integer  "distrito_id"
+    t.integer  "local_id"
+    t.date     "fecha"
+    t.boolean  "especial"
+    t.date     "verDia"
+    t.time     "verDesde"
+    t.time     "verHasta"
+    t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cita", ["client_id"], name: "index_cita_on_client_id"
+  add_index "cita", ["distrito_id"], name: "index_cita_on_distrito_id"
+  add_index "cita", ["espeServicio_id"], name: "index_cita_on_espeServicio_id"
+  add_index "cita", ["local_id"], name: "index_cita_on_local_id"
+  add_index "cita", ["tipoServicio_id"], name: "index_cita_on_tipoServicio_id"
+  add_index "cita", ["vehicle_id"], name: "index_cita_on_vehicle_id"
 
   create_table "clients", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -50,6 +74,24 @@ ActiveRecord::Schema.define(version: 20150213142225) do
     t.datetime "updated_at"
   end
 
+  create_table "distritos", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "espe_servicios", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locals", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "marcas", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -62,7 +104,14 @@ ActiveRecord::Schema.define(version: 20150213142225) do
     t.datetime "updated_at"
   end
 
+  create_table "tipo_servicios", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "vehicles", force: true do |t|
+    t.string   "name"
     t.string   "placa"
     t.date     "anho_fab"
     t.string   "serie"

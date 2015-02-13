@@ -29,7 +29,7 @@
 
         
           <div class="form-inputs">
-            
+            <%= f.input :name, label: "Apodo para su vehículo " %>
             <%= f.input :placa, label: "Placa " %>
             <%= f.association :marca, label: "Marca " %>
             <%= f.association :modelo, label: "Modelo " %>
@@ -43,7 +43,7 @@
             <%= f.association :client, :selected => (current_client.id), :as => :hidden%>
           </div>
         
-          <div class="form-actions">
+          <div align="center">
             <%= f.button :submit, "Agregar" %>
           </div>
         <% end %>

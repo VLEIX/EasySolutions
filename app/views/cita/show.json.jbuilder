@@ -1,0 +1,1 @@
+json.extract! @citum, :id, :vehicle_id, :tipoServicio_id, :espeServicio_id, :observacion, :distrito_id, :local_id, :fecha, :especial, :verDia, :verDesde, :verHasta, :client_id, :created_at, :updated_at

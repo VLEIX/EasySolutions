@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :cita
+
   resources :vehicles
 
   get 'welcome/intranet'
