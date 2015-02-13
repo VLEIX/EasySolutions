@@ -12,7 +12,7 @@
 						<li><a <%= link_to "+ vehículo", new_vehicle_path %>></a></li>
 						<li><a <%= link_to "Reservar cita", new_citum_path %>></a></li>
 						<li><a <%= link_to "Citas", cita_path %>></a></li>
-						<li><a <%= link_to "Estados", :controller => "welcome", :action => "service" %>></a></li>
+						<li><a <%= link_to "Estados", statuses_path %>></a></li>
 						<li class="active"><%= link_to "Bienvenido, "+current_client.name, :controller => "welcome", :action => "intranet" %></li>
 						<li><%= link_to "Cerrar sesión", destroy_client_session_path, method: :delete %>></a></li>
 

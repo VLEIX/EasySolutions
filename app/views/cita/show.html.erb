@@ -1,64 +1,140 @@
+
+
+
+
+
+<% if client_signed_in? %>
+
+
+
+
+
+
+
+
+
+  <!--start-header--->
+  <div class="header">
+    <!--start-wrap--->
+    <div class="wrap">
+        <!--start-logo--->
+        <div class="logo">
+          <a><img src="/images/logo.png" /></a>
+        </div>
+        <div class="top-nav">
+          
+        </div>
+        <div class="clear"> </div>
+        <!--End-logo--->
+        </div>
+      <!--End-header--->
+    </div>
+    <div class="clear"> </div>
+    <div class="banner-slider">
+    <div class="wrap box" style="width: 60%">
+      <div class="contact-form" >
+        
+                <h2 class="rotulo" >DETALLE DE CITA</h2>
+        
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Vehicle:</strong>
-  <%= @citum.vehicle.name %>
-</p>
+<p> <strong style="margin-left: 25px">Vehículo:</strong></p>
+<div align="center" style=" background-color: #FFF">
+  <span>Apodo del vehiculo: </span><%= @citum.vehicle.name %>
+</div>
 
-<p>
-  <strong>Tiposervicio:</strong>
-  <%= @citum.tipoServicio.name %>
-</p>
+<p> <strong style="margin-left: 25px">Cita:</strong></p>
+<div align="center" style=" background-color: #FFF">
+  <span>Tipo de servicio: </span><%= @citum.tipoServicio.name %>
+</div>
+<div align="center" style=" background-color: #FFF">
+  <span>Kilometraje: </span><%= @citum.espeServicio.name %>
+</div>
+<div align="center" style=" background-color: #FFF">
+  <span>Kilometraje: </span><%= @citum.distrito.name %>
+</div>
+<div align="center" style=" background-color: #FFF">
+  <span>Local: </span><%= @citum.local.name %>
+</div>
+<div align="center" style=" background-color: #FFF">
+  <span>Fecha: </span><%= @citum.fecha %>
+</div>
 
-<p>
-  <strong>Espeservicio:</strong>
-  <%= @citum.espeServicio.name %>
-</p>
+<p> <strong style="margin-left: 25px">Servicio especial</strong></p>
+<div align="center" style=" background-color: #FFF">
+  <span>Recogeran su vehiculo: </span><% if @citum.especial? %>Sí<% else %>No<% end %>
+</div>
 
-<p>
-  <strong>Observacion:</strong>
+<p> <strong style="margin-left: 25px">Observaciones</strong></p>
+<div align="center" style=" background-color: #FFF">
   <%= @citum.observacion %>
-</p>
+</div>
 
-<p>
-  <strong>Distrito:</strong>
-  <%= @citum.distrito.name %>
-</p>
+<div align="center" >
+<%= link_to 'Editar', edit_citum_path(@citum) %> |
+<%= link_to 'Regresar', cita_path %>
+</div>
 
-<p>
-  <strong>Local:</strong>
-  <%= @citum.local.name %>
-</p>
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @citum.fecha %>
-</p>
 
-<p>
-  <strong>Especial:</strong>
-  <%= @citum.especial %>
-</p>
 
-<p>
-  <strong>Verdia:</strong>
-  <%= @citum.verDia %>
-</p>
+<br>
+        
+        
+        
+      </div>
+      <div class="clear"> </div>
+  </div>
+</div>
 
-<p>
-  <strong>Verdesde:</strong>
-  <%= @citum.verDesde %>
-</p>
+  <!--End-wrap--->
 
-<p>
-  <strong>Verhasta:</strong>
-  <%= @citum.verHasta %>
-</p>
 
-<p>
-  <strong>Client:</strong>
-  <%= @citum.client %>
-</p>
 
-<%= link_to 'Edit', edit_citum_path(@citum) %> |
-<%= link_to 'Back', cita_path %>
+
+<% else %>
+
+	
+	<!--start-header--->
+	<div class="header">
+  	<!--start-wrap--->
+  	<div class="wrap">
+  			<!--start-logo--->
+  			<div class="logo">
+  				<a><img src="/images/logo.png" /></a>
+  			</div>
+  			<div class="top-nav">
+          
+  			</div>
+  			<div class="clear"> </div>
+  			<!--End-logo--->
+  		  </div>
+  		<!--End-header--->
+  	</div>
+  	<div class="clear"> </div>
+  	<div class="banner-slider">
+  	<div class="wrap box" style="width: 37%">
+      <div class="contact-form" >
+        
+        
+        
+        <h2 class="rotulo" >USTED NO ESTA LOGUEADO</h2>
+    	<span align="center"><%= link_to "Iniciar sesión", new_client_session_path %></span>
+    	<span align="center"><%= link_to "Regístrese", new_client_registration_path %></span>
+        
+
+
+
+   
+        
+      </div>
+      <div class="clear"> </div>
+  </div>
+</div>
+
+	<!--End-wrap--->
+
+	
+	
+<% end %>
+
