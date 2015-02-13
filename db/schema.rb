@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212194545) do
+ActiveRecord::Schema.define(version: 20150213142225) do
 
   create_table "clients", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -37,5 +37,49 @@ ActiveRecord::Schema.define(version: 20150212194545) do
 
   add_index "clients", ["email"], name: "index_clients_on_email", unique: true
   add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
+
+  create_table "colors", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "departamentos", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "marcas", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "modelos", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vehicles", force: true do |t|
+    t.string   "placa"
+    t.date     "anho_fab"
+    t.string   "serie"
+    t.string   "nro_motor"
+    t.integer  "client_id"
+    t.integer  "marca_id"
+    t.integer  "modelo_id"
+    t.integer  "departamento_id"
+    t.integer  "color_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "vehicles", ["client_id"], name: "index_vehicles_on_client_id"
+  add_index "vehicles", ["color_id"], name: "index_vehicles_on_color_id"
+  add_index "vehicles", ["departamento_id"], name: "index_vehicles_on_departamento_id"
+  add_index "vehicles", ["marca_id"], name: "index_vehicles_on_marca_id"
+  add_index "vehicles", ["modelo_id"], name: "index_vehicles_on_modelo_id"
 
 end

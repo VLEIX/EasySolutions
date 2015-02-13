@@ -13,7 +13,7 @@
 						<li><a <%= link_to "Servicios", :controller => "welcome", :action => "service" %>></a></li>
 						<li><a <%= link_to "Contacto", :controller => "welcome", :action => "contact" %>></a></li>
 						<% if client_signed_in? %>
-							<li><a style="text-align:center">Bienvenido,<br><%= current_client.fech %></a></li>
+							<li><%= link_to "Bienvenido, "+current_client.name, :controller => "welcome", :action => "intranet" %></li>
 							<li><%= link_to "Cerrar sesión", destroy_client_session_path, method: :delete %>></a></li>
 						<% else %>
 							<li><%= link_to "Iniciar sesión", new_client_session_path %>></a></li>

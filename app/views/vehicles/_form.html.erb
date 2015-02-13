@@ -1,0 +1,60 @@
+
+
+  <!--start-header--->
+  <div class="header">
+    <!--start-wrap--->
+    <div class="wrap">
+        <!--start-logo--->
+        <div class="logo">
+          <a><img src="/images/logo.png" /></a>
+        </div>
+        <div class="top-nav">
+          
+        </div>
+        <div class="clear"> </div>
+        <!--End-logo--->
+        </div>
+      <!--End-header--->
+    </div>
+    <div class="clear"> </div>
+    <div class="banner-slider">
+    <div class="wrap box" style="width: 37%">
+      <div class="contact-form" >
+        
+        
+        
+        <h2 class="rotulo" >AGREGAR VEHÍCULO</h2>
+        <%= simple_form_for(@vehicle) do |f| %>
+          <%= f.error_notification %>
+
+        
+          <div class="form-inputs">
+            
+            <%= f.input :placa, label: "Placa " %>
+            <%= f.association :marca, label: "Marca " %>
+            <%= f.association :modelo, label: "Modelo " %>
+            <%= f.input  :anho_fab, :as => :date, :start_year => Date.today.year,
+:end_year => 1940,
+:order => [ :day, :month, :year], :class => "textfield", label: "Fecha de fabricación" %>
+            <%= f.association :departamento, label: "Departamento de inscripción " %>
+            <%= f.input :serie, label: "Nro. de Serie (chasis) " %>
+            <%= f.input :nro_motor, label: "Nro. de Motor " %>
+            <%= f.association :color, label: "Color " %>
+            <%= f.association :client, :selected => (current_client.id), :as => :hidden%>
+          </div>
+        
+          <div class="form-actions">
+            <%= f.button :submit, "Agregar" %>
+          </div>
+        <% end %>
+        
+        
+        
+      </div>
+      <div class="clear"> </div>
+  </div>
+</div>
+
+  <!--End-wrap--->
+
+

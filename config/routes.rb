@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :vehicles
+
+  get 'welcome/intranet'
+
   devise_for :clients, controllers: {registrations: 'registrations'}
   
   get 'welcome/contact'

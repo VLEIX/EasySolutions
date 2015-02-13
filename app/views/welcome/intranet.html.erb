@@ -1,0 +1,129 @@
+<% if client_signed_in? %>
+		<!--start-header--->
+		<div class="header">
+		<!--start-wrap--->
+		<div class="wrap">
+				<!--start-logo--->
+				<div class="logo">
+					<a><img src="/images/logo.png" /></a>
+				</div>
+				<div class="top-nav">
+					<ul>
+						<li><a <%= link_to "+ vehículo", new_vehicle_path %>></a></li>
+						<li><a <%= link_to "Reservar cita", :controller => "welcome", :action => "about" %>></a></li>
+						<li><a <%= link_to "Citas", :controller => "welcome", :action => "service" %>></a></li>
+						<li><a <%= link_to "Estados", :controller => "welcome", :action => "service" %>></a></li>
+						<li class="active"><%= link_to "Bienvenido, "+current_client.name, :controller => "welcome", :action => "intranet" %></li>
+						<li><%= link_to "Cerrar sesión", destroy_client_session_path, method: :delete %>></a></li>
+
+					</ul>
+				</div>
+				<div class="clear"> </div>
+				<!--End-logo--->
+			</div>
+			<!--End-header--->
+		</div>
+		<div class="clear"> </div>
+		<div class="banner-slider">
+		<div class="wrap box">
+			<div class="banner">
+	        <div class="flexslider">
+	          <ul class="slides">
+	            <li data-thumb="/images/1.jpg">
+	  	    	    <img src="/images/1.jpg" />
+	  	    		</li>
+	  	    		  <li data-thumb="/images/2.jpg">
+	  	    	  <img src="/images/2.jpg" />
+	  	    		</li>
+	  	    		  <li data-thumb="/images/1.jpg">
+	  	    	    <img src="/images/1.jpg" />
+	  	    		</li>
+	  	    		  <li data-thumb="/images/4.jpg">
+	  	    	    <img src="/images/4.jpg" />
+	  	    		</li>
+	          </ul>
+	          
+	        </div>
+	         <div class="banner-withtext">
+	        	<h3>ACHIEVE THE HIGHEST</h3>
+	        	<h2>RESULTS</h2>
+	        	<P>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</P>
+	        </div>
+	        <div class="Lets-start">
+	        	<a href="#">Let's start</a>
+	        </div>
+	      </div>
+	       <div class="clear"> </div>
+	  </div>
+	   <div class="clear"> </div>
+	  </div>
+	  <!-- jQuery -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
+  <!-- FlexSlider -->
+  <script defer src="js/jquery.flexslider.js"></script><script type="text/javascript">
+    $(function(){
+      SyntaxHighlighter.all();
+    });
+    $(window).load(function(){
+      $('.flexslider').flexslider({
+        animation: "slide",
+        controlNav: "thumbnails",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+    });
+  </script>
+  <div class="clear"> </div>
+  <div class="wrap">
+		
+			  	 <div class="clear"> </div>
+	</div>
+		<!--End-wrap--->
+<% else %>
+
+	
+	<!--start-header--->
+	<div class="header">
+  	<!--start-wrap--->
+  	<div class="wrap">
+  			<!--start-logo--->
+  			<div class="logo">
+  				<a><img src="/images/logo.png" /></a>
+  			</div>
+  			<div class="top-nav">
+          
+  			</div>
+  			<div class="clear"> </div>
+  			<!--End-logo--->
+  		  </div>
+  		<!--End-header--->
+  	</div>
+  	<div class="clear"> </div>
+  	<div class="banner-slider">
+  	<div class="wrap box" style="width: 37%">
+      <div class="contact-form" >
+        
+        
+        
+        <h2 class="rotulo" >USTED NO ESTA LOGUEADO</h2>
+    	<span align="center"><%= link_to "Iniciar sesión", new_client_session_path %></span>
+    	<span align="center"><%= link_to "Regístrese", new_client_registration_path %></span>
+        
+
+
+
+   
+        
+      </div>
+      <div class="clear"> </div>
+  </div>
+</div>
+
+	<!--End-wrap--->
+
+	
+	
+<% end %>
+		

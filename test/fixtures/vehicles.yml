@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  placa: MyString
+  anho_fab: 2015-02-13
+  serie: MyString
+  nro_motor: MyString
+  client_id: 
+  marca_id: 
+  modelo_id: 
+  departamento_id: 
+  color_id: 
+
+two:
+  placa: MyString
+  anho_fab: 2015-02-13
+  serie: MyString
+  nro_motor: MyString
+  client_id: 
+  marca_id: 
+  modelo_id: 
+  departamento_id: 
+  color_id: 

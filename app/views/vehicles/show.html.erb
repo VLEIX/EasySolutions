@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Placa:</strong>
+  <%= @vehicle.placa %>
+</p>
+
+<p>
+  <strong>Anho fab:</strong>
+  <%= @vehicle.anho_fab %>
+</p>
+
+<p>
+  <strong>Serie:</strong>
+  <%= @vehicle.serie %>
+</p>
+
+<p>
+  <strong>Nro motor:</strong>
+  <%= @vehicle.nro_motor %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @vehicle.client %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @vehicle.marca %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @vehicle.modelo %>
+</p>
+
+<p>
+  <strong>Departamento:</strong>
+  <%= @vehicle.departamento %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @vehicle.color %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Back', vehicles_path %>
