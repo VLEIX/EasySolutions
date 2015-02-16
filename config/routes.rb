@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  resources :reserves
+
+  resources :marcas
+
+  get 'marcas/index'
+
+  get 'marcas/show'
+
+  get 'marcas/new'
+
+  get 'marcas/edit'
+
   resources :statuses
 
   resources :cita

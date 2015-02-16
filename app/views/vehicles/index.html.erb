@@ -25,11 +25,11 @@
         <td><%= vehicle.anho_fab %></td>
         <td><%= vehicle.serie %></td>
         <td><%= vehicle.nro_motor %></td>
-        <td><%= vehicle.client %></td>
-        <td><%= vehicle.marca %></td>
-        <td><%= vehicle.modelo %></td>
-        <td><%= vehicle.departamento %></td>
-        <td><%= vehicle.color %></td>
+        <td><%= vehicle.client.name %></td>
+        <td><%= vehicle.marca.name %></td>
+        <td><%= vehicle.modelo.name %></td>
+        <td><%= vehicle.departamento.name %></td>
+        <td><%= vehicle.color.name %></td>
         <td><%= link_to 'Show', vehicle %></td>
         <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
         <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>

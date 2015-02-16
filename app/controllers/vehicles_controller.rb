@@ -13,7 +13,8 @@ class VehiclesController < ApplicationController
   end
 
   def new
-    @vehicle = Vehicle.new
+    @client = Client.find(current_client.id)
+    @vehicle = @client.vehicles.new
     respond_with(@vehicle)
   end
 
@@ -21,7 +22,8 @@ class VehiclesController < ApplicationController
   end
 
   def create
-    @vehicle = Vehicle.new(vehicle_params)
+    @client = Client.find(params[:id])
+    @vehicle = @client.vehicles.new(vehicle_params)
     @vehicle.save
     
       if @vehicle.save
@@ -35,13 +37,13 @@ class VehiclesController < ApplicationController
     
       respond_to do |format|
         format.html { 
-        if success
-          flash[:success] = message
-          redirect_to :controller => "welcome", :action => "intranet"
-        else 
-          flash[:error] = message
-          redirect_to new_vehicle_path 
-        end
+          if success
+            flash[:success] = message
+            redirect_to :controller => "welcome", :action => "intranet"
+          else 
+            flash[:error] = message
+            redirect_to new_vehicle_path 
+          end
         }
         format.json { render :json => { :success => success, :message => message }.to_json }
       end  

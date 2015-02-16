@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicle_id: 
+  tipoServicio_id: 
+  espeServicio_id: 
+  observacion: MyText
+  distrito_id: 
+  local_id: 
+  fecha: 2015-02-16
+  especial: false
+  verDia: 2015-02-16
+  verDesde: 2015-02-16 21:17:59
+  verHasta: 2015-02-16 21:17:59
+
+two:
+  vehicle_id: 
+  tipoServicio_id: 
+  espeServicio_id: 
+  observacion: MyText
+  distrito_id: 
+  local_id: 
+  fecha: 2015-02-16
+  especial: false
+  verDia: 2015-02-16
+  verDesde: 2015-02-16 21:17:59
+  verHasta: 2015-02-16 21:17:59

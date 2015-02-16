@@ -24,7 +24,7 @@
         
         
         <h2 class="rotulo" >AGREGAR VEHÍCULO</h2>
-        <%= simple_form_for(@vehicle) do |f| %>
+        <%= simple_form_for @vehicle, :url => {:action => :create, :id => current_client.id} do |f| %>
           <%= f.error_notification %>
 
         
@@ -40,7 +40,6 @@
             <%= f.input :serie, label: "Nro. de Serie (chasis) " %>
             <%= f.input :nro_motor, label: "Nro. de Motor " %>
             <%= f.association :color, label: "Color " %>
-            <%= f.association :client, :selected => (current_client.id), :as => :hidden%>
           </div>
         
           <div align="center">

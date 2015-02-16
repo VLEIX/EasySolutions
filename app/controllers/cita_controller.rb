@@ -4,7 +4,7 @@ class CitaController < ApplicationController
   respond_to :html
 
   def index
-    @cita = Citum.all
+    @cita = Citum.where(client_id: current_client.id)
     respond_with(@cita)
   end
 
@@ -13,7 +13,8 @@ class CitaController < ApplicationController
   end
 
   def new
-    @citum = Citum.new
+    @client = Client.find(current_client.id)
+    @citum = @client.cita.new
     respond_with(@citum)
   end
 
@@ -21,7 +22,8 @@ class CitaController < ApplicationController
   end
 
   def create
-    @citum = Citum.new(citum_params)
+    @client = Client.find(params[:id])
+    @citum = @client.cita.new(citum_params)
     @citum.save
       if @citum.save
         success = true
