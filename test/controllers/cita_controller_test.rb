@@ -18,7 +18,7 @@ class CitaControllerTest < ActionController::TestCase
 
   test "should create citum" do
     assert_difference('Citum.count') do
-      post :create, citum: { client_id: @citum.client_id, distrito_id: @citum.distrito_id, espeServicio_id: @citum.espeServicio_id, especial: @citum.especial, fecha: @citum.fecha, local_id: @citum.local_id, observacion: @citum.observacion, tipoServicio_id: @citum.tipoServicio_id, vehicle_id: @citum.vehicle_id, verDesde: @citum.verDesde, verDia: @citum.verDia, verHasta: @citum.verHasta }
+      post :create, citum: { client_id: @citum.client_id, distrito_id: @citum.distrito_id, espeServicio_id: @citum.espeServicio_id, especial: @citum.especial, fecha: @citum.fecha, hour_id: @citum.hour_id, local_id: @citum.local_id, observacion: @citum.observacion, tipoServicio_id: @citum.tipoServicio_id, vehicle_id: @citum.vehicle_id, verDesde: @citum.verDesde, verDia: @citum.verDia, verHasta: @citum.verHasta }
     end
 
     assert_redirected_to citum_path(assigns(:citum))
@@ -35,7 +35,7 @@ class CitaControllerTest < ActionController::TestCase
   end
 
   test "should update citum" do
-    patch :update, id: @citum, citum: { client_id: @citum.client_id, distrito_id: @citum.distrito_id, espeServicio_id: @citum.espeServicio_id, especial: @citum.especial, fecha: @citum.fecha, local_id: @citum.local_id, observacion: @citum.observacion, tipoServicio_id: @citum.tipoServicio_id, vehicle_id: @citum.vehicle_id, verDesde: @citum.verDesde, verDia: @citum.verDia, verHasta: @citum.verHasta }
+    patch :update, id: @citum, citum: { client_id: @citum.client_id, distrito_id: @citum.distrito_id, espeServicio_id: @citum.espeServicio_id, especial: @citum.especial, fecha: @citum.fecha, hour_id: @citum.hour_id, local_id: @citum.local_id, observacion: @citum.observacion, tipoServicio_id: @citum.tipoServicio_id, vehicle_id: @citum.vehicle_id, verDesde: @citum.verDesde, verDia: @citum.verDia, verHasta: @citum.verHasta }
     assert_redirected_to citum_path(assigns(:citum))
   end
 

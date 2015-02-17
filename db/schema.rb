@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213222350) do
+ActiveRecord::Schema.define(version: 20150217202147) do
 
   create_table "cita", force: true do |t|
     t.integer  "vehicle_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150213222350) do
     t.date     "verDia"
     t.time     "verDesde"
     t.time     "verHasta"
+    t.integer  "hour_id"
     t.integer  "client_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150213222350) do
   add_index "cita", ["client_id"], name: "index_cita_on_client_id"
   add_index "cita", ["distrito_id"], name: "index_cita_on_distrito_id"
   add_index "cita", ["espeServicio_id"], name: "index_cita_on_espeServicio_id"
+  add_index "cita", ["hour_id"], name: "index_cita_on_hour_id"
   add_index "cita", ["local_id"], name: "index_cita_on_local_id"
   add_index "cita", ["tipoServicio_id"], name: "index_cita_on_tipoServicio_id"
   add_index "cita", ["vehicle_id"], name: "index_cita_on_vehicle_id"
@@ -86,6 +88,18 @@ ActiveRecord::Schema.define(version: 20150213222350) do
     t.datetime "updated_at"
   end
 
+  create_table "hours", force: true do |t|
+    t.integer  "local_id"
+    t.integer  "worker_id"
+    t.time     "atention"
+    t.boolean  "dispon"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "hours", ["local_id"], name: "index_hours_on_local_id"
+  add_index "hours", ["worker_id"], name: "index_hours_on_worker_id"
+
   create_table "locals", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -136,5 +150,11 @@ ActiveRecord::Schema.define(version: 20150213222350) do
   add_index "vehicles", ["departamento_id"], name: "index_vehicles_on_departamento_id"
   add_index "vehicles", ["marca_id"], name: "index_vehicles_on_marca_id"
   add_index "vehicles", ["modelo_id"], name: "index_vehicles_on_modelo_id"
+
+  create_table "workers", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

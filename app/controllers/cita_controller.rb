@@ -64,6 +64,6 @@ class CitaController < ApplicationController
     end
 
     def citum_params
-      params.require(:citum).permit(:vehicle_id, :tipoServicio_id, :espeServicio_id, :observacion, :distrito_id, :local_id, :fecha, :especial, :verDia, :verDesde, :verHasta, :client_id)
+      params.require(:citum).permit(:vehicle_id, :tipoServicio_id, :espeServicio_id, :observacion, :distrito_id, :local_id, :fecha, :especial, :verDia, :verDesde, :verHasta, :hour_id,:client_id)
     end
 end

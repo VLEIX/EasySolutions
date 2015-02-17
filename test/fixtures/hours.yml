@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  local_id: 
+  worker_id: 
+  atention: 2015-02-17 19:15:21
+  dispon: false
+
+two:
+  local_id: 
+  worker_id: 
+  atention: 2015-02-17 19:15:21
+  dispon: false

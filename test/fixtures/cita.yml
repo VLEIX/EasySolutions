@@ -7,11 +7,12 @@ one:
   observacion: MyText
   distrito_id: 
   local_id: 
-  fecha: 2015-02-13
+  fecha: 2015-02-17
   especial: false
-  verDia: 2015-02-13
-  verDesde: 2015-02-13 17:18:22
-  verHasta: 2015-02-13 17:18:22
+  verDia: 2015-02-17
+  verDesde: 2015-02-17 20:21:47
+  verHasta: 2015-02-17 20:21:47
+  hour_id: 
   client_id: 
 
 two:
@@ -21,9 +22,10 @@ two:
   observacion: MyText
   distrito_id: 
   local_id: 
-  fecha: 2015-02-13
+  fecha: 2015-02-17
   especial: false
-  verDia: 2015-02-13
-  verDesde: 2015-02-13 17:18:22
-  verHasta: 2015-02-13 17:18:22
+  verDia: 2015-02-17
+  verDesde: 2015-02-17 20:21:47
+  verHasta: 2015-02-17 20:21:47
+  hour_id: 
   client_id: 

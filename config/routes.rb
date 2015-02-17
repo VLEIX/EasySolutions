@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :hours
+
+  resources :workers
+
   resources :reserves
 
   resources :marcas

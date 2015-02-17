@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @hour.local %>
+</p>
+
+<p>
+  <strong>Worker:</strong>
+  <%= @hour.worker %>
+</p>
+
+<p>
+  <strong>Atention:</strong>
+  <%= @hour.atention %>
+</p>
+
+<p>
+  <strong>Dispon:</strong>
+  <%= @hour.dispon %>
+</p>
+
+<%= link_to 'Edit', edit_hour_path(@hour) %> |
+<%= link_to 'Back', hours_path %>

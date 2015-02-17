@@ -1,0 +1,14 @@
+<%= simple_form_for(@hour) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :local %>
+    <%= f.association :worker %>
+    <%= f.input :atention %>
+    <%= f.input :dispon %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
