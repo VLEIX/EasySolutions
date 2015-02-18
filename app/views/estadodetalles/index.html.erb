@@ -1,31 +1,285 @@
-<h1>Listing estadodetalles</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Estado</th>
-      <th>Task</th>
-      <th>Worker</th>
-      <th>Citum</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		
+		  <title>EasySolutions - Empresa líder, especialista en soluciones web</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<meta charset="UTF-8"/>
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="stylesheets/flexslider.css" type="text/css" media="all" />
+	<script src="/js/modernizr.js"></script>
+	<script src="/js/responsive-nav.js"></script>
+	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+		<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="assets/stylesheets/theme.css" />
+		<link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
+		<link rel="stylesheet" href="assets\vendor\font-awesome\css\font-awesome.css" />
+		
+				  <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+		    <div class="header" style=" height:95px; background-color:black  " >
+    <!--start-wrap--->
+	      <div class="wrap">
+        <!--start-logo--->
+        <div class="logo">
+          <a><img src="/images/logo.png" /></a>
+        </div>
+        <div class="top-nav">
+          <ul>
+						<li><a <%= link_to "+ vehículo", new_vehicle_path %>></a></li>
+						<li><a <%= link_to "Vehículos", vehicles_path %>></a></li>
+						<li><a <%= link_to "Reservar cita", new_citum_path %>></a></li>
+						<li class="active"><a <%= link_to "Citas", cita_path %>></a></li>
+						<li><%= link_to "Bienvenido, "+current_client.name, :controller => "welcome", :action => "intranet" %></li>
+						<li><%= link_to "Cerrar sesión", destroy_client_session_path, method: :delete %>></a></li>
+
+					</ul>
+        </div>
+        <!--End-logo--->
+        </div>
+      <!--End-header--->
+	   </div>
+	</head>
+
+	   
+	   
+	<body>
+
+	  <br/>
+<div> 
+	<center><h2 >    ESTADO DE SERVICIO</h2></center>
+</div>
+
+<div> 
+	<center><h4>VEHÍCULO: <%= @vehicle.name %></h4></center>
+</div>
+
+		<div class="row">
+						<div class="col-xs-12">
+							<section id="w4" class="panel form-wizard">
+								<div class="panel-body">
+									<div class="wizard-progress wizard-progress-lg">
+										<div class="steps-progress">
+											<div class="progress-indicator" style="width: 0%;"></div>
+										</div>
+										<ul class="wizard-steps">
+											<li class='active'> 
+												<a data-toggle='tab' href="#w4-inicio" id="estado_1"><span>1</span> RECOJO DE VEHÍCULO </a>
+											</li>
+											<li>
+												<a data-toggle="tab" href="#w4-account" id="estado_2"><span>2</span>INGRESO DE VEHÍCULO</a>
+											</li>
+											<li>
+												<a data-toggle="tab" href="#w4-profile" id="estado_3"><span>3</span>REVISIÓN TÉCNICA</a>
+											</li>
+											<li>
+												<a data-toggle="tab" href="#w4-billing" id="estado_4"><span>4</span>INFORME TÉCNICO</a>
+											</li>
+											<li>
+												<a data-toggle="tab" href="#w4-billing" id="estado_5"><span>6</span>REPARACIÓN</a>
+											</li>
+											<li>
+												<a data-toggle="tab" href="#w4-confirm" id="estado_6"><span>7</span>INFORME FINAL</a>
+											</li>
+
+
+
+											<!-- AQUI GREGAD MAS ITEMS -->
+											<!-- CADA ITEM DEBE TENER SU CONTENIDO -->
+										</ul>
+									</div>
+
+									<form novalidate="novalidate" class="form-horizontal">
+										<div class="tab-content">
+										<!-- AQUI VAN LOS CONTENIDOS QUE DESEA AGREGAR -->
+											<div class='tab-pane active' id ="w4-inicio">
+												<section class="panel">
+						
+						<div class="panel-body">
+
+							<table class="table table-no-more table-bordered table-striped mb-none">
+								<thead>
+									<tr>
+										<th class="hidden-xs hidden-sm" id="ColorCabecera">TAREA</th>
+										<th class="text-right" id="ColorCabecera">ESPECIALISTA</th>
+										<th class="text-right hidden-xs hidden-sm" id="ColorCabecera">FECHA</th>
+										
+									</tr>
+								</thead>
+
+
+  <tbody id="tabla_1">
     <% @estadodetalles.each do |estadodetalle| %>
       <tr>
-        <td><%= estadodetalle.estado.name %></td>
-        <td><%= estadodetalle.task %></td>
-        <td><%= estadodetalle.worker.name %></td>
-        <td><%= estadodetalle.citum.id %></td>
-        <td><%= link_to 'Show', estadodetalle %></td>
-        <td><%= link_to 'Edit', edit_estadodetalle_path(estadodetalle) %></td>
-        <td><%= link_to 'Destroy', estadodetalle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td data-title="TAREA"><%= estadodetalle.task %></td>
+        <td class="hidden-xs hidden-sm" data-title="ESPECIALISTA"><%= estadodetalle.worker.name %></td>
+        <td class="text-right" data-title="FECHA"><%= estadodetalle.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
       </tr>
     <% end %>
   </tbody>
-</table>
+  <tbody id="tabla_2", style="display:none">
+    <% @estadodetalles_2.each do |estadodetalle_2| %>
+      <tr>
+        <td data-title="TAREA"><%= estadodetalle_2.task %></td>
+        <td class="hidden-xs hidden-sm" data-title="ESPECIALISTA"><%= estadodetalle_2.worker.name %></td>
+        <td class="text-right" data-title="FECHA"><%= estadodetalle_2.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tbody id="tabla_3", style="display:none">
+    <% @estadodetalles_3.each do |estadodetalle_3| %>
+      <tr>
+        <td data-title="TAREA"><%= estadodetalle_3.task %></td>
+        <td class="hidden-xs hidden-sm" data-title="ESPECIALISTA"><%= estadodetalle_3.worker.name %></td>
+        <td class="text-right" data-title="FECHA"><%= estadodetalle_3.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tbody id="tabla_4", style="display:none">
+    <% @estadodetalles_4.each do |estadodetalle_4| %>
+      <tr>
+        <td data-title="TAREA"><%= estadodetalle_4.task %></td>
+        <td class="hidden-xs hidden-sm" data-title="ESPECIALISTA"><%= estadodetalle_4.worker.name %></td>
+        <td class="text-right" data-title="FECHA"><%= estadodetalle_4.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tbody id="tabla_5", style="display:none">
+    <% @estadodetalles_5.each do |estadodetalle_5| %>
+      <tr>
+        <td data-title="TAREA"><%= estadodetalle_5.task %></td>
+        <td class="hidden-xs hidden-sm" data-title="ESPECIALISTA"><%= estadodetalle_5.worker.name %></td>
+        <td class="text-right" data-title="FECHA"><%= estadodetalle_5.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tbody id="tabla_6", style="display:none">
+    <% @estadodetalles_6.each do |estadodetalle_6| %>
+      <tr>
+        <td data-title="TAREA"><%= estadodetalle_6.task %></td>
+        <td class="hidden-xs hidden-sm" data-title="ESPECIALISTA"><%= estadodetalle_6.worker.name %></td>
+        <td class="text-right" data-title="FECHA"><%= estadodetalle_6.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+      </tr>
+    <% end %>
+  </tbody>
 
-<br>
+								
+							</table>
+							
+							
+<%= link_to 'Compartir en Facebook', "http://www.facebook.com/sharer.php?s=100&p[url]=https://proyecto-easysolutions-vleix.c9.io&p[images][0]=https://proyecto-easysolutions-vleix.c9.io//images/logo.png&p[title]=El mejor taller del Perú", target: '_blank' %>
 
-<%= link_to 'New Estadodetalle', new_estadodetalle_path %>
+						</div>
+												</section>
+											</div>
+
+										<!-- AQUI TERINA DE AGREGAR TU TABLA-->
+									
+											
+											
+											
+										</div>
+									</form>
+								</div>
+								<div class="panel-footer">
+									<ul class="pager">
+									</ul>
+								</div>
+							</section>
+						</div>
+					</div>
+
+	
+		<script src="assets/vendor/jquery/jquery.js"></script>
+		<script src="assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+		<script src="assets/vendor/bootstrap/js/bootstrap.js"></script>
+	
+		
+	
+		<script src="assets/vendor/jquery-validation/jquery.validate.js"></script>
+		<script src="assets/vendor/bootstrap-wizard/jquery.bootstrap.wizard.js"></script>
+	
+		<script src="assets/javascripts/forms/examples.wizard.js"></script>
+	</body>
+	
+	<div class="clear"> </div>
+<div class="footer"> 
+		<div class="wrap"> 
+		<div class="left-footer"> 
+			<a href="index.html"><img src="/images/logo1.png" title="logo"></a>
+		</div>
+		<div class="right-footer">
+			<p>EasySolutions Todos los derechos reservados | ES TEAM <a href="https://proyecto-easysolutions-vleix.c9.io/welcome/intranet">EasySolutions</a></p>
+		</div>
+		<div class="clear"> </div>
+	</div>
+	
+</div>
+  <script type='text/javascript'>
+    $(document).ready(function(){
+      var tabla_1 = document.getElementById("tabla_1");
+      var tabla_2 = document.getElementById("tabla_2");
+      var tabla_3 = document.getElementById("tabla_3");
+      var tabla_4 = document.getElementById("tabla_4");
+      var tabla_5 = document.getElementById("tabla_5");
+      var tabla_6 = document.getElementById("tabla_6");
+      $("#estado_1").click(function(){
+        tabla_1.style.display = "";
+        tabla_2.style.display = "none";
+        tabla_3.style.display = "none";
+        tabla_4.style.display = "none";
+        tabla_5.style.display = "none";
+        tabla_6.style.display = "none";
+      });
+      $("#estado_2").click(function(){
+        tabla_1.style.display = "none";
+        tabla_2.style.display = "";
+        tabla_3.style.display = "none";
+        tabla_4.style.display = "none";
+        tabla_5.style.display = "none";
+        tabla_6.style.display = "none";
+      });
+      $("#estado_3").click(function(){
+        tabla_1.style.display = "none";
+        tabla_2.style.display = "none";
+        tabla_3.style.display = "";
+        tabla_4.style.display = "none";
+        tabla_5.style.display = "none";
+        tabla_6.style.display = "none";
+      });
+      $("#estado_4").click(function(){
+        tabla_1.style.display = "none";
+        tabla_2.style.display = "none";
+        tabla_3.style.display = "none";
+        tabla_4.style.display = "";
+        tabla_5.style.display = "none";
+        tabla_6.style.display = "none";
+      });
+      $("#estado_5").click(function(){
+        tabla_1.style.display = "none";
+        tabla_2.style.display = "none";
+        tabla_3.style.display = "none";
+        tabla_4.style.display = "none";
+        tabla_5.style.display = "";
+        tabla_6.style.display = "none";
+      });
+      $("#estado_6").click(function(){
+        tabla_1.style.display = "none";
+        tabla_2.style.display = "none";
+        tabla_3.style.display = "none";
+        tabla_4.style.display = "none";
+        tabla_5.style.display = "none";
+        tabla_6.style.display = "";
+      });
+    });
+  </script>
+</html>

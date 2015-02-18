@@ -80,7 +80,7 @@
 
 <div align="center" >
 <%= link_to 'Editar', edit_citum_path(@citum) %> |
-<%= link_to 'Ver estados', :controller => :estadodetalles, :action => :index, :id_cita => @citum.id, :id_estado => 1 %> |
+<%= link_to 'Ver estados', :controller => :estadodetalles, :action => :index, :id_cita => @citum.id, :id_vehicle => @citum.vehicle_id %> |
 <%= link_to 'Regresar', cita_path %>
 </div>
 

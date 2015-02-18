@@ -3,9 +3,17 @@ class EstadodetallesController < ApplicationController
 
   respond_to :html
 
+  layout 'detallelimpio'
+
   def index
-    @estadodetalles = Estadodetalle.where(citum_id: params[:id_cita], estado_id: params[:id_estado])
-    respond_with(@estadodetalles)
+    @vehicle = Vehicle.find(params[:id_vehicle])
+    @estadodetalles = Estadodetalle.where(citum_id: params[:id_cita], estado_id: 1)
+    @estadodetalles_2 = Estadodetalle.where(citum_id: params[:id_cita], estado_id: 2)
+    @estadodetalles_3 = Estadodetalle.where(citum_id: params[:id_cita], estado_id: 3)
+    @estadodetalles_4 = Estadodetalle.where(citum_id: params[:id_cita], estado_id: 4)
+    @estadodetalles_5 = Estadodetalle.where(citum_id: params[:id_cita], estado_id: 5)
+    @estadodetalles_6 = Estadodetalle.where(citum_id: params[:id_cita], estado_id: 6)
+    respond_with(@estadodetalles, @estadodetalles_2, @estadodetalles_3, @estadodetalles_4, @estadodetalles_5, @estadodetalles_6, @vehicle)
   end
 
   def show

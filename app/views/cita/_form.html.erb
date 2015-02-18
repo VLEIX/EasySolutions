@@ -53,11 +53,12 @@ $(document).ready(function(){
             <%= f.association :espeServicio, label: "Kilometraje: " %><br/>
             <%= f.label :observacion, 'Observaciones' %><br />
             <%= f.text_area :observacion, label: "Observaciones: "%><br/>
-            <%= f.association :distrito, label: "Distrito de la sede: " %><br/>
+                        <%= f.input  :fecha, :as => :date, :start_year => Date.today.year, :end_year => Date.today.year, 
+            :order => [ :day, :month, :year], :class => "textfield", label: "Fecha de atención" %><br/>
+            <%= f.association :distrito, label: "Distrito de la sede: " %>
             <%= f.association :local, label: "Nombre de la sede: ", input_html:{ id:'select_local'} %><br/>
 
-            <%= f.input  :fecha, :as => :date, :start_year => Date.today.year, :end_year => Date.today.year, 
-            :order => [ :day, :month, :year], :class => "textfield", label: "Fecha de atención" %>
+
             
             
             
@@ -68,18 +69,21 @@ $(document).ready(function(){
             <table id="tablita", style="display:none">
               <thead>
                 <tr style="width: 100%" bgcolor="#D1C0C0">
+                  <th style="width: 10%">√</th>
                   <th style="width: 30%">Taller</th>
                   <th style="width: 30%">Asesor de servicio</th>
                   <th style="width: 30%">Horario</th>
-                  <th style="width: 10%">√</th>
                   <th colspan="4"></th>
                 </tr>
               </thead>
-            
+              <tbody>
+                <th colspan="4" style="width: 100%"><%= f.association :hour, :label_method => lambda { |hour| "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; #{hour.local.name} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;  #{hour.worker.name} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; #{hour.atention.strftime("%H:%M")} &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;".html_safe }, :as => :radio_buttons, label: "" %><br/></th>
+                
+              </tbody>
               
                   
                     
-              <%= f.association :hour, :label_method => lambda { |hour| "<tbody><tr style='width: 100%; margin: 10px'><th align='center' style='width: 30%'>#{hour.local.name}</th><th align='center' style='width: 30%'>#{hour.worker.name}</th><th align='center' style='width: 30%'>#{hour.atention.strftime("%H:%M")}</th><th align='center' style='width: 30%'>#{hour.dispon}</th></tr></tbody>".html_safe }, :as => :radio_buttons, label: "" %><br/>
+              
                     
                   
               
