@@ -22,7 +22,15 @@
           <a><img src="/images/logo.png" /></a>
         </div>
         <div class="top-nav">
-          
+          <ul>
+						<li><a <%= link_to "+ vehículo", new_vehicle_path %>></a></li>
+						<li><a <%= link_to "Vehículos", vehicles_path %>></a></li>
+						<li><a <%= link_to "Reservar cita", new_citum_path %>></a></li>
+						<li class="active"><a <%= link_to "Citas", cita_path %>></a></li>
+						<li><%= link_to "Bienvenido, "+current_client.name, :controller => "welcome", :action => "intranet" %></li>
+						<li><%= link_to "Cerrar sesión", destroy_client_session_path, method: :delete %>></a></li>
+
+					</ul>
         </div>
         <div class="clear"> </div>
         <!--End-logo--->
@@ -72,9 +80,9 @@
 
 <div align="center" >
 <%= link_to 'Editar', edit_citum_path(@citum) %> |
+<%= link_to 'Ver estados', :controller => :estadodetalles, :action => :index, :id_cita => @citum.id, :id_estado => 1 %> |
 <%= link_to 'Regresar', cita_path %>
 </div>
-
 
 
 

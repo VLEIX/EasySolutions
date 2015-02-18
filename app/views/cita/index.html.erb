@@ -4,12 +4,6 @@
 
 
 
-
-
-
-
-
-
   <!--start-header--->
   <div class="header">
     <!--start-wrap--->
@@ -19,7 +13,15 @@
           <a><img src="/images/logo.png" /></a>
         </div>
         <div class="top-nav">
-          
+          <ul>
+						<li><a <%= link_to "+ vehículo", new_vehicle_path %>></a></li>
+						<li><a <%= link_to "Vehículos", vehicles_path %>></a></li>
+						<li><a <%= link_to "Reservar cita", new_citum_path %>></a></li>
+						<li class="active"><a <%= link_to "Citas", cita_path %>></a></li>
+						<li><%= link_to "Bienvenido, "+current_client.name, :controller => "welcome", :action => "intranet" %></li>
+						<li><%= link_to "Cerrar sesión", destroy_client_session_path, method: :delete %>></a></li>
+
+					</ul>
         </div>
         <div class="clear"> </div>
         <!--End-logo--->

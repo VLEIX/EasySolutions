@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :estadodetalles
+
+  resources :estados
+
   resources :hours
 
   resources :workers

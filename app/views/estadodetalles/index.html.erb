@@ -1,0 +1,31 @@
+<h1>Listing estadodetalles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Estado</th>
+      <th>Task</th>
+      <th>Worker</th>
+      <th>Citum</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @estadodetalles.each do |estadodetalle| %>
+      <tr>
+        <td><%= estadodetalle.estado.name %></td>
+        <td><%= estadodetalle.task %></td>
+        <td><%= estadodetalle.worker.name %></td>
+        <td><%= estadodetalle.citum.id %></td>
+        <td><%= link_to 'Show', estadodetalle %></td>
+        <td><%= link_to 'Edit', edit_estadodetalle_path(estadodetalle) %></td>
+        <td><%= link_to 'Destroy', estadodetalle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Estadodetalle', new_estadodetalle_path %>

@@ -1,43 +1,136 @@
-<h1>Listing vehicles</h1>
 
+
+<% if client_signed_in? %>
+
+
+
+  <!--start-header--->
+  <div class="header">
+    <!--start-wrap--->
+    <div class="wrap">
+        <!--start-logo--->
+        <div class="logo">
+          <a><img src="/images/logo.png" /></a>
+        </div>
+        <div class="top-nav">
+          <ul>
+						<li><a <%= link_to "+ vehículo", new_vehicle_path %>></a></li>
+						<li class="active"><a <%= link_to "Vehículos", vehicles_path %>></a></li>
+						<li><a <%= link_to "Reservar cita", new_citum_path %>></a></li>
+						<li><a <%= link_to "Citas", cita_path %>></a></li>
+						<li><%= link_to "Bienvenido, "+current_client.name, :controller => "welcome", :action => "intranet" %></li>
+						<li><%= link_to "Cerrar sesión", destroy_client_session_path, method: :delete %>></a></li>
+
+					</ul>
+        </div>
+        <div class="clear"> </div>
+        <!--End-logo--->
+        </div>
+      <!--End-header--->
+    </div>
+    <div class="clear"> </div>
+    <div class="banner-slider">
+    <div class="wrap box" style="width: 100%">
+      <div class="contact-form" >
+        
+                <h2 class="rotulo" >VEHÍCULOS</h2>
+        
 <table>
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Placa</th>
-      <th>Anho fab</th>
-      <th>Serie</th>
-      <th>Nro motor</th>
-      <th>Client</th>
-      <th>Marca</th>
-      <th>Modelo</th>
-      <th>Departamento</th>
-      <th>Color</th>
-      <th colspan="3"></th>
+    <tr style="width: 100%" bgcolor="#D1C0C0">
+      
+      <th style="width: 9%">Name</th>
+      <th style="width: 9%">Placa</th>
+      <th style="width: 9%">Anho fab</th>
+      <th style="width: 9%">Serie</th>
+      <th style="width: 9%">Nro motor</th>
+      <th style="width: 9%">Client</th>
+      <th style="width: 9%">Marca</th>
+      <th style="width: 9%">Modelo</th>
+      <th style="width: 9%">Departamento</th>
+      <th style="width: 9%"th>Color</th>
+      <th style="width: 10%"th></th>
+      <th colspan="11"></th>
     </tr>
+    
   </thead>
 
   <tbody>
     <% @vehicles.each do |vehicle| %>
       <tr>
-        <td><%= vehicle.name %></td>
-        <td><%= vehicle.placa %></td>
-        <td><%= vehicle.anho_fab %></td>
-        <td><%= vehicle.serie %></td>
-        <td><%= vehicle.nro_motor %></td>
-        <td><%= vehicle.client.name %></td>
-        <td><%= vehicle.marca.name %></td>
-        <td><%= vehicle.modelo.name %></td>
-        <td><%= vehicle.departamento.name %></td>
-        <td><%= vehicle.color.name %></td>
-        <td><%= link_to 'Show', vehicle %></td>
-        <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
-        <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td align="center" style="width: 9%"><%= vehicle.name %></td>
+        <td align="center" style="width: 9%"><%= vehicle.placa %></td>
+        <td align="center" style="width: 9%"><%= vehicle.anho_fab %></td>
+        <td align="center" style="width: 9%"><%= vehicle.serie %></td>
+        <td align="center" style="width: 9%"><%= vehicle.nro_motor %></td>
+        <td align="center" style="width: 9%"><%= vehicle.client.name %></td>
+        <td align="center" style="width: 9%"><%= vehicle.marca.name %></td>
+        <td align="center" style="width: 9%"><%= vehicle.modelo.name %></td>
+        <td align="center" style="width: 9%"><%= vehicle.departamento.name %></td>
+        <td align="center" style="width: 9%"><%= vehicle.color.name %></td>
+        <td align="center" style="width: 10%"><%= link_to 'Edit', edit_vehicle_path(vehicle) %>  | <%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+        
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+        
+        
+        
+      </div>
+      <div class="clear"> </div>
+  </div>
+</div>
 
-<%= link_to 'New Vehicle', new_vehicle_path %>
+  <!--End-wrap--->
+
+
+
+
+<% else %>
+
+	
+	<!--start-header--->
+	<div class="header">
+  	<!--start-wrap--->
+  	<div class="wrap">
+  			<!--start-logo--->
+  			<div class="logo">
+  				<a><img src="/images/logo.png" /></a>
+  			</div>
+  			<div class="top-nav">
+          
+  			</div>
+  			<div class="clear"> </div>
+  			<!--End-logo--->
+  		  </div>
+  		<!--End-header--->
+  	</div>
+  	<div class="clear"> </div>
+  	<div class="banner-slider">
+  	<div class="wrap box" style="width: 37%">
+      <div class="contact-form" >
+        
+        
+        
+        <h2 class="rotulo" >USTED NO ESTA LOGUEADO</h2>
+    	<span align="center"><%= link_to "Iniciar sesión", new_client_session_path %></span>
+    	<span align="center"><%= link_to "Regístrese", new_client_registration_path %></span>
+        
+
+
+
+   
+        
+      </div>
+      <div class="clear"> </div>
+  </div>
+</div>
+
+	<!--End-wrap--->
+
+	
+	
+<% end %>

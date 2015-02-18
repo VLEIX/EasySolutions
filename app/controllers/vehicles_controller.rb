@@ -4,7 +4,7 @@ class VehiclesController < ApplicationController
   respond_to :html
 
   def index
-    @vehicles = Vehicle.all
+    @vehicles = Vehicle.where(:client_id => current_client.id)
     respond_with(@vehicles)
   end
 

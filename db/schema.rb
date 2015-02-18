@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217202147) do
+ActiveRecord::Schema.define(version: 20150218060412) do
 
   create_table "cita", force: true do |t|
     t.integer  "vehicle_id"
@@ -83,6 +83,25 @@ ActiveRecord::Schema.define(version: 20150217202147) do
   end
 
   create_table "espe_servicios", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "estadodetalles", force: true do |t|
+    t.integer  "estado_id"
+    t.string   "task"
+    t.integer  "worker_id"
+    t.integer  "citum_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "estadodetalles", ["citum_id"], name: "index_estadodetalles_on_citum_id"
+  add_index "estadodetalles", ["estado_id"], name: "index_estadodetalles_on_estado_id"
+  add_index "estadodetalles", ["worker_id"], name: "index_estadodetalles_on_worker_id"
+
+  create_table "estados", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

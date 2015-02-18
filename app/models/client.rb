@@ -6,6 +6,7 @@ class Client < ActiveRecord::Base
   
   has_many :vehicles
   has_many :cita
+  has_many :estadodetalles
   
   #validates_presence_of :name, :on => :create, :message => "sssa"
 end

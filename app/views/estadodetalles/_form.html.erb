@@ -1,0 +1,14 @@
+<%= simple_form_for(@estadodetalle) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :estado %>
+    <%= f.input :task %>
+    <%= f.association :worker %>
+    <%= f.association :citum, :label_method => lambda { |citum| "#{citum.id} | #{citum.fecha} | #{citum.local.name} | #{citum.client.name}" } %>
+  </div>
+ 
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

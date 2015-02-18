@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @estadodetalle.estado %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @estadodetalle.task %>
+</p>
+
+<p>
+  <strong>Worker:</strong>
+  <%= @estadodetalle.worker %>
+</p>
+
+<p>
+  <strong>Citum:</strong>
+  <%= @estadodetalle.citum %>
+</p>
+
+<%= link_to 'Edit', edit_estadodetalle_path(@estadodetalle) %> |
+<%= link_to 'Back', estadodetalles_path %>

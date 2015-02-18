@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estado_id: 
+  task: MyString
+  worker_id: 
+  citum_id: 
+
+two:
+  estado_id: 
+  task: MyString
+  worker_id: 
+  citum_id: 
