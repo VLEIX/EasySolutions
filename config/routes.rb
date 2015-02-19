@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'welcome/intranetAdministrator'
+
+  devise_for :administrators, controllers: {registrations: 'registrations'}
   resources :estadodetalles
 
   resources :estados

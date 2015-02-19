@@ -1,14 +1,66 @@
-<%= simple_form_for(@estadodetalle) do |f| %>
+
+
+
+
+
+
+
+  <!--start-header--->
+  <div class="header">
+    <!--start-wrap--->
+    <div class="wrap">
+        <!--start-logo--->
+        <div class="logo">
+          <a><img src="/images/logo.png" /></a>
+        </div>
+        <div class="top-nav">
+					<ul>
+						<li class="active"><a <%= link_to "Ver Citas", cita_path %>></a></li>
+						<li><%= link_to "Bienvenido administrador, "+current_administrator.name, :controller => "welcome", :action => "intranetAdministrator" %></li>
+						<li><%= link_to "Cerrar sesión", destroy_administrator_session_path, method: :delete %>></a></li>
+
+					</ul>
+        </div>
+        <div class="clear"> </div>
+        <!--End-logo--->
+        </div>
+      <!--End-header--->
+    </div>
+    <div class="clear"> </div>
+    <div class="banner-slider">
+    <div class="wrap box" style="width: 37%">
+      <div class="contact-form" >
+        
+        
+        
+        <h2 class="rotulo" >AGREGAR ESTADOS</h2>
+<%= simple_form_for @estadodetalle , :url => {:action => :create, :citum_id => @citum.id} do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :estado %>
-    <%= f.input :task %>
-    <%= f.association :worker %>
-    <%= f.association :citum, :label_method => lambda { |citum| "#{citum.id} | #{citum.fecha} | #{citum.local.name} | #{citum.client.name}" } %>
+    <%= f.association :estado, label: "Elija el estado" %>
+    <%= f.input :task, label: "Tarea realizada" %>
+    <%= f.association :worker, label: "Especialista" %>
   </div>
  
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div align="center">
+    <%= f.button :submit, "AGREGAR ESTADO" %>
   </div>
 <% end %>
+        
+        
+        
+      </div>
+      <div class="clear"> </div>
+  </div>
+</div>
+
+  <!--End-wrap--->
+
+
+
+
+
+
+
+

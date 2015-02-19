@@ -52,7 +52,7 @@
         <td align="center" style="width: 25%"><%= citum.vehicle.name %></td>
         <td align="center" style="width: 25%"><%= citum.local.name %></td>
         <td align="center" style="width: 25%"><%= citum.hour.worker.name %></td>
-        <td align="center" style="width: 25%"><%= link_to 'Ver detalles', citum  %></td>
+        <td align="center" style="width: 25%"><%= link_to 'Ver detalles', citum  %> | <%= link_to 'Cancelar', citum, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -70,8 +70,74 @@
   <!--End-wrap--->
 
 
+<% elsif administrator_signed_in? %>
 
+  <!--start-header--->
+  <div class="header">
+    <!--start-wrap--->
+    <div class="wrap">
+        <!--start-logo--->
+        <div class="logo">
+          <a><img src="/images/logo.png" /></a>
+        </div>
+        <div class="top-nav">
+          <ul>
+						<li class="active"><a <%= link_to "Ver Citas", cita_path %>></a></li>
+						<li><%= link_to "Bienvenido administrador, "+current_administrator.name, :controller => "welcome", :action => "intranetAdministrator" %></li>
+						<li><%= link_to "Cerrar sesión", destroy_administrator_session_path, method: :delete %>></a></li>
 
+					</ul>
+        </div>
+        <div class="clear"> </div>
+        <!--End-logo--->
+        </div>
+      <!--End-header--->
+    </div>
+    <div class="clear"> </div>
+    <div class="banner-slider">
+    <div class="wrap box" style="width: 60%">
+      <div class="contact-form" >
+        
+                <h2 class="rotulo" >CITAS RESERVADAS TOTALES</h2>
+        
+<table>
+  <thead>
+    <tr style="width: 100%" bgcolor="#D1C0C0">
+      <th style="width: 15%">Cliente</th>
+      <th style="width: 15%">Vehículo</th>
+      <th style="width: 15%">Taller</th>
+      <th style="width: 15%">Especialista</th>
+      <th style="width: 40%"></th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cita.each do |citum| %>
+      <tr style="width: 100%; margin: 10px">
+        <td align="center" style="width: 15%"><%= citum.client.name %></td>
+        <td align="center" style="width: 15%"><%= citum.vehicle.name %></td>
+        <td align="center" style="width: 15%"><%= citum.local.name %></td>
+        <td align="center" style="width: 15%"><%= citum.hour.worker.name %></td>
+        <td align="center" style="width: 40%"><%= link_to 'Ver detalles', citum  %> | <%= link_to 'Cancelar', citum, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      
+        
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+        
+        
+        
+      </div>
+      <div class="clear"> </div>
+  </div>
+</div>
+
+  <!--End-wrap--->
 <% else %>
 
 	

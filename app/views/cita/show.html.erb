@@ -98,6 +98,87 @@
   <!--End-wrap--->
 
 
+<% elsif administrator_signed_in? %>
+
+
+  <!--start-header--->
+  <div class="header">
+    <!--start-wrap--->
+    <div class="wrap">
+        <!--start-logo--->
+        <div class="logo">
+          <a><img src="/images/logo.png" /></a>
+        </div>
+        <div class="top-nav">
+          <ul>
+						<li class="active"><a <%= link_to "Ver Citas", cita_path %>></a></li>
+						<li><%= link_to "Bienvenido administrador, "+current_administrator.name, :controller => "welcome", :action => "intranetAdministrator" %></li>
+						<li><%= link_to "Cerrar sesión", destroy_administrator_session_path, method: :delete %>></a></li>
+					</ul>
+        </div>
+        <div class="clear"> </div>
+        <!--End-logo--->
+        </div>
+      <!--End-header--->
+    </div>
+    <div class="clear"> </div>
+    <div class="banner-slider">
+    <div class="wrap box" style="width: 60%">
+      <div class="contact-form" >
+        
+                <h2 class="rotulo" >DETALLE DE CITA</h2>
+        
+<p id="notice"><%= notice %></p>
+
+<p> <strong style="margin-left: 25px">Vehículo:</strong></p>
+<div align="center" style=" background-color: #FFF">
+  <span>Apodo del vehiculo: </span><%= @citum.vehicle.name %>
+</div>
+
+<p> <strong style="margin-left: 25px">Cita:</strong></p>
+<div align="center" style=" background-color: #FFF">
+  <span>Tipo de servicio: </span><%= @citum.tipoServicio.name %>
+</div>
+<div align="center" style=" background-color: #FFF">
+  <span>Kilometraje: </span><%= @citum.espeServicio.name %>
+</div>
+<div align="center" style=" background-color: #FFF">
+  <span>Distrito: </span><%= @citum.distrito.name %>
+</div>
+<div align="center" style=" background-color: #FFF">
+  <span>Local: </span><%= @citum.local.name %>
+</div>
+<div align="center" style=" background-color: #FFF">
+  <span>Fecha: </span><%= @citum.fecha %>
+</div>
+
+<p> <strong style="margin-left: 25px">Servicio especial</strong></p>
+<div align="center" style=" background-color: #FFF">
+  <span>Recogeran su vehiculo: </span><% if @citum.especial? %>Sí<% else %>No<% end %>
+</div>
+
+<p> <strong style="margin-left: 25px">Observaciones</strong></p>
+<div align="center" style=" background-color: #FFF">
+  <%= @citum.observacion %>
+</div>
+
+<div align="center" >
+<%= link_to 'Agregar estados', :controller => :estadodetalles, :action => :new, :id_cita => @citum.id %> |
+<%= link_to 'Regresar', cita_path %>
+</div>
+
+
+
+<br>
+        
+        
+        
+      </div>
+      <div class="clear"> </div>
+  </div>
+</div>
+
+  <!--End-wrap--->
 
 
 <% else %>

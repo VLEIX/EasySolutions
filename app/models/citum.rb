@@ -6,4 +6,6 @@ class Citum < ActiveRecord::Base
   belongs_to :local
   belongs_to :hour
   belongs_to :client
+  
+  has_many :estadodetalles
 end

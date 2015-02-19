@@ -1,0 +1,117 @@
+
+<script type='text/javascript'>
+$(document).ready(function(){
+  
+  $("#select_local").change(function(){
+    var myPara = document.getElementById("tablita");
+    myPara.style.display = "";
+  });
+
+});
+</script>
+
+
+  <!--start-header--->
+  <div class="header">
+    <!--start-wrap--->
+    <div class="wrap">
+        <!--start-logo--->
+        <div class="logo">
+          <a><img src="/images/logo.png" /></a>
+        </div>
+        <div class="top-nav">
+          <ul>
+						<li class="active"><a <%= link_to "Ver Citas", cita_path %>></a></li>
+						<li><%= link_to "Bienvenido administrador, "+current_administrator.name, :controller => "welcome", :action => "intranetAdministrator" %></li>
+						<li><%= link_to "Cerrar sesión", destroy_administrator_session_path, method: :delete %>></a></li>
+
+					</ul>
+        </div>
+        <div class="clear"> </div>
+        <!--End-logo--->
+        </div>
+      <!--End-header--->
+    </div>
+    <div class="clear"> </div>
+    <div class="banner-slider">
+    <div class="wrap box" style="width: 50%">
+      <div class="contact-form" >
+        
+        
+        
+        <h2 class="rotulo" >RESERVAR CITA</h2>
+        
+        <%= simple_form_for @citum, :url => {:action => :create, :id => @client.id} do |f| %>
+          <%= f.error_notification %>
+        
+          <div class="form-inputs" >
+            <%= f.association :vehicle, :collection => Vehicle.where(client_id: @client.id), label: "Seleccione su vehículo: " %><br/>
+            <%= f.association :tipoServicio, label: "Tipo de servicio: " %><br/>
+            <%= f.association :espeServicio, label: "Kilometraje: " %><br/>
+            <%= f.label :observacion, 'Observaciones' %><br />
+            <%= f.text_area :observacion, label: "Observaciones: "%><br/>
+                        <%= f.input  :fecha, :as => :date, :start_year => Date.today.year, :end_year => Date.today.year, 
+            :order => [ :day, :month, :year], :class => "textfield", label: "Fecha de atención" %><br/>
+            <%= f.association :distrito, label: "Distrito de la sede: " %>
+            <%= f.association :local, label: "Nombre de la sede: ", input_html:{ id:'select_local'} %><br/>
+
+
+            
+            
+            
+            
+            <br/>
+            
+
+            <table id="tablita", style="display:none">
+              <thead>
+                <tr style="width: 100%" bgcolor="#D1C0C0">
+                  <th style="width: 10%">√</th>
+                  <th style="width: 30%">Taller</th>
+                  <th style="width: 30%">Asesor de servicio</th>
+                  <th style="width: 30%">Horario</th>
+                  <th colspan="4"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <th colspan="4" style="width: 100%"><%= f.association :hour, :label_method => lambda { |hour| "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; #{hour.local.name} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;  #{hour.worker.name} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; #{hour.atention.strftime("%H:%M")} &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;".html_safe }, :as => :radio_buttons, label: "" %><br/></th>
+                
+              </tbody>
+              
+                  
+                    
+              
+                    
+                  
+              
+            </table>
+            
+            <br/>
+            <%= f.input :especial, label: "Solicita recojo del vehículo" %>
+            <br/>
+            <h1 style="font-size:0.8125em;">Para verificar sus datos, seleccione por favor el horario de preferencia en que desea ser contactado</h1>
+            <%= f.input :verDia, label: "Día: " %>
+            <%= f.input :verDesde, label: "Desde: " %>
+            <%= f.input :verHasta, label: "Hasta: " %>
+          </div>
+        
+          <div align="center">
+            <%= f.button :submit, "Reservar cita" %>
+          </div>
+        <% end %>
+        
+        
+        
+      </div>
+      <div class="clear"> </div>
+  </div>
+</div>
+
+
+
+
+
+  <!--End-wrap--->
+
+
+

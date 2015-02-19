@@ -1,4 +1,4 @@
 class WelcomeController < ApplicationController
-  def intranet
+  def intranetAdministrator
   end
 end

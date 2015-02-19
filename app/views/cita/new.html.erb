@@ -2,6 +2,11 @@
 <%= render 'form' %>
 
 <%= link_to 'Atrás', cita_path %>
+<% elsif administrator_signed_in? %>
+
+<%= render 'form2' %>
+
+<%= link_to 'Atrás', cita_path %>
 <% else %>
 
 	

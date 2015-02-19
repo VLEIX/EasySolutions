@@ -4,7 +4,14 @@ class CitaController < ApplicationController
   respond_to :html
 
   def index
-    @cita = Citum.where(client_id: current_client.id)
+    if client_signed_in?
+       @cita = Citum.where(client_id: current_client.id)
+    elsif administrator_signed_in?
+      @cita = Citum.all
+    else
+      #
+    end
+
     respond_with(@cita)
   end
 

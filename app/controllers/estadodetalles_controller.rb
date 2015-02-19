@@ -3,8 +3,6 @@ class EstadodetallesController < ApplicationController
 
   respond_to :html
 
-  layout 'detallelimpio'
-
   def index
     @vehicle = Vehicle.find(params[:id_vehicle])
     @estadodetalles = Estadodetalle.where(citum_id: params[:id_cita], estado_id: 1)
@@ -21,7 +19,8 @@ class EstadodetallesController < ApplicationController
   end
 
   def new
-    @estadodetalle = Estadodetalle.new
+    @citum = Citum.find(params[:id_cita])
+    @estadodetalle = @citum.estadodetalles.new
     respond_with(@estadodetalle)
   end
 
@@ -29,9 +28,31 @@ class EstadodetallesController < ApplicationController
   end
 
   def create
-    @estadodetalle = Estadodetalle.new(estadodetalle_params)
+    @citum = Citum.find(params[:citum_id])
+    @estadodetalle = @citum.estadodetalles.new(estadodetalle_params)
     @estadodetalle.save
-    respond_with(@estadodetalle)
+    
+      if @estadodetalle.save
+        success = true
+        message = "El estado se agregó correctamente..."
+        
+      else
+        success = false
+        message = "Hubo un error..."
+      end
+    
+      respond_to do |format|
+        format.html { 
+          if success
+            flash[:success] = message
+            redirect_to :controller => "estadodetalles", :action => "new", :id_cita => @citum.id
+          else 
+            flash[:error] = message
+            redirect_to new_vehicle_path 
+          end
+        }
+        format.json { render :json => { :success => success, :message => message }.to_json }
+      end  
   end
 
   def update

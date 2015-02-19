@@ -8,6 +8,7 @@
 				</div>
 				<div class="top-nav">
 					<ul>
+						
 						<li class="active"><a <%= link_to "Inicio", :controller => "welcome", :action => "index" %>></a></li>
 						<li><a <%= link_to "Nosotros", :controller => "welcome", :action => "about" %>></a></li>
 						<li><a <%= link_to "Servicios", :controller => "welcome", :action => "service" %>></a></li>
@@ -15,6 +16,9 @@
 						<% if client_signed_in? %>
 							<li><%= link_to "Bienvenido, "+current_client.name, :controller => "welcome", :action => "intranet" %></li>
 							<li><%= link_to "Cerrar sesión", destroy_client_session_path, method: :delete %>></a></li>
+						<% elsif administrator_signed_in?%>
+							<li><%= link_to "Bienvenido, "+current_administrator.name, :controller => "welcome", :action => "intranetAdministrator" %></li>
+							<li><%= link_to "Cerrar sesión", destroy_administrator_session_path, method: :delete %>></a></li>
 						<% else %>
 							<li><%= link_to "Iniciar sesión", new_client_session_path %>></a></li>
 							<li><%= link_to "Regístrese", new_client_registration_path %>></a></li>
@@ -46,16 +50,6 @@
 	  	    	    <img src="/images/4.jpg" />
 	  	    		</li>
 	          </ul>
-	          
-	        </div>
-	         <div class="banner-withtext">
-	        	<h3>ACHIEVE THE HIGHEST</h3>
-	        	<h2>RESULTS</h2>
-	        	<P>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</P>
-	        </div>
-	        <div class="Lets-start">
-	        	<a href="#">Let's start</a>
-	        </div>
 	      </div>
 	       <div class="clear"> </div>
 	  </div>
@@ -84,128 +78,36 @@
 		<div class="section group">
 						<div class="col images_1_of_5">
 							 <img src="/images/tyre.png">
-							 <h2>Tire Sales</h2>
+							 <h2>Más ventas</h2>
 							 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						     <div class="button"><span><a href="#">Read More</a></span></div>
+						     <div class="button"><span><a href="#">LEER MÁS</a></span></div>
 					   </div>
 						<div class="col images_1_of_5">
 							 <img src="/images/repair.png">
-							 <h2>Repair</h2>
+							 <h2>Reparación</h2>
 							 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						     <div class="button"><span><a href="#">Read More</a></span></div>
+						     <div class="button"><span><a href="#">LEER MÁS</a></span></div>
 					    </div>
 						<div class="col images_1_of_5">
 							 <img src="/images/complete.png">
-							 <h2>Battery problems</h2>
+							 <h2>Reportes</h2>
 							 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						     <div class="button"><span><a href="#">Read More</a></span></div>
+						     <div class="button"><span><a href="#">LEER MÁS</a></span></div>
 						</div>
 						<div class="col images_1_of_5">
 							 <img src="/images/spares.png">
-							 <h2>Spare parts</h2>
+							 <h2>Sincronización</h2>
 							 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						     <div class="button"><span><a href="#">Read More</a></span></div>
+						     <div class="button"><span><a href="#">LEER MÁS</a></span></div>
 						</div>
 						<div class="col images_1_of_5">
 							 <img src="/images/sales.png">
-							 <h2>Sales & Services</h2>
+							 <h2>Más clientes</h2>
 							 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						     <div class="button"><span><a href="#">Read More</a></span></div>
+						     <div class="button"><span><a href="#">LEER MÁS</a></span></div>
 						</div>
 					</div>
-					<div class="grids">
-						<h4>Latest Collections</h4>
-					<div class="section group">
-						<div class="col images_1_of_3">
-							  <img src="/images/grid-img4.jpg">
-							  <h2>Lorem Ipsum is simply dummy text </h2>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor.</p>
-						     <div class="button"><span><a href="#">Read More</a></span></div>
-						</div>
-						<div class="col images_1_of_3">
-							  <img src="/images/grid-img3.jpg">
-							  <h2>Lorem Ipsum is simply dummy text </h2>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor.</p>
-						     <div class="button"><span><a href="#">Read More</a></span></div>
-						</div>
-						<div class="col images_1_of_3">
-							  <img src="/images/grid-img2.jpg">
-							  <h2>Lorem Ipsum is simply dummy text </h2>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor.</p>
-						     <div class="button"><span><a href="#">Read More</a></span></div>
-						</div>
-					</div>
-					<div class="section group">
-						<div class="col images_1_of_3">
-							  <img src="/images/grid-img5.jpg">
-							  <h2>Lorem Ipsum is simply dummy text </h2>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor.</p>
-						     <div class="button"><span><a href="#">Read More</a></span></div>
-						</div>
-						<div class="col images_1_of_3">
-							  <img src="/images/grid-img6.jpg">
-							  <h2>Lorem Ipsum is simply dummy text </h2>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor.</p>
-						     <div class="button"><span><a href="#">Read More</a></span></div>
-						</div>
-						<div class="col images_1_of_3">
-							  <img src="/images/grid-img7.jpg">
-							  <h2>Lorem Ipsum is simply dummy text </h2>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor.</p>
-						     <div class="button"><span><a href="#">Read More</a></span></div>
-						</div>
-					</div>
-					</div>
-					<div class="slidebar">
-						<h4>Our News</h4>
-						<div class="col images_1_of_2">
-							<div class="col listimg_2_of_1">
-								  <img src="/images/news6.jpg">
-							</div>
-						    <div class="text list_2_of_1">
-								<h2>Lorem Ipsum is simply</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt  ut labore et dolore.</p>
-						   </div>
-				   		</div>
-				   		<div class="col images_1_of_2">
-							<div class="col listimg_2_of_1">
-								  <img src="/images/news5.jpg">
-							</div>
-						    <div class="text list_2_of_1">
-								<h2>Lorem Ipsum is simply</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt  ut labore et dolore.</p>
-						   </div>
-				   		</div>
-				   		<div class="col images_1_of_2 last">
-							<div class="col listimg_2_of_1">
-								  <img src="/images/news3.jpg">
-							</div>
-						    <div class="text list_2_of_1">
-								<h2>Lorem Ipsum is simply</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt  ut labore et dolore.</p>
-						   </div>
-				   		</div>
-				   		<div class="col images_1_of_2 last">
-							<div class="col listimg_2_of_1">
-								  <img src="/images/news4.jpg">
-							</div>
-						    <div class="text list_2_of_1">
-								<h2>Lorem Ipsum is simply</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt  ut labore et dolore.</p>
-						   </div>
-				   		</div>
-				   		<div class="col images_1_of_2">
-							<div class="col listimg_2_of_1">
-								  <img src="/images/news2.jpg">
-							</div>
-						    <div class="text list_2_of_1">
-								<h2>Lorem Ipsum is simply</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt  ut labore et dolore.</p>
-								<div class="button"><span><a href="#">Read More</a></span></div>
-						   </div>
-				   		</div>
-				   		
-			  	 </div>
+					
 			  	 <div class="clear"> </div>
 	</div>
 		<!--End-wrap--->
